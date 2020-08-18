@@ -1,13 +1,26 @@
 import React from 'react';
+import styled from 'styled-components';
 import Menu from './components/Menu';
 import dadosIniciais from './data/dados_iniciais.json';
 import BannerMain from './components/BannerMain';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
 
+const AppWrapper = styled.div`
+  background: var(--grayDark);
+  --bodyPaddingTop: 94px;
+  padding-top: var(--bodyPaddingTop);
+
+  @media (max-width: 800px) 
+  {
+    --bodyPaddingTop: 40px;
+    padding-top: var(--bodyPaddingTop);
+  }
+`;
+
 function App() {
   return (
-    <div style={{background: "#141414"}}>
+    <AppWrapper>
       <Menu />
 
       <BannerMain
@@ -28,7 +41,7 @@ function App() {
         category={dadosIniciais.categorias[3]} />
 
       <Footer />
-    </div>
+    </AppWrapper>
   );
 }
 
